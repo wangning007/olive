@@ -52,24 +52,16 @@
             <version>2.6</version>
         </dependency>
         <dependency>
-<<<<<<< HEAD
-=======
-            <groupId>com.inspur</groupId>
-            <artifactId>ojdbc</artifactId>
-            <version>1.0</version>
-        </dependency>
-        <dependency>
->>>>>>> 355b272a4247122e29c5e2e34ee8704fe1971974
             <groupId>commons-dbutils</groupId>
             <artifactId>commons-dbutils</artifactId>
             <version>1.7</version>
         </dependency>
-<<<<<<< HEAD
-
-
-
-=======
->>>>>>> 355b272a4247122e29c5e2e34ee8704fe1971974
+        <dependency>
+            <groupId>com.inspur</groupId>
+            <artifactId>olive-commons</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
 
     </dependencies>
 
