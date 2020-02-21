@@ -18,6 +18,7 @@ import org.jsoup.select.Elements;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Queue;
 
 public class BlogCrawler {
 
