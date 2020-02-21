@@ -6,6 +6,8 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.ResultSetHandler;
 import org.apache.log4j.Logger;
 
+import java.nio.charset.Charset;
+import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,17 +28,17 @@ public class Test {
         try {
             connection = ConnectionUtil.getConnection();
             QueryRunner queryRunner = new QueryRunner();
-            String sql = "select username from sta_user where username = ?";
+            String sql = "select contenta from blog_detail where int_id = 428199230282145792";
             List<Map> list = queryRunner.execute(connection, sql, new ResultSetHandler<Map>() {
                 public Map handle(ResultSet resultSet) throws SQLException {
                     Map map = new HashMap();
                     while(resultSet.next()){
-                        map.put("username",resultSet.getString("username"));
+                        map.put("contenta",new String(resultSet.getBytes("contenta")));
                     }
                     return map;
                 }
-            },"wangning");
-            System.out.println("数据数量:"+list.size());
+            });
+            System.out.println("数据数量:"+list.get(0).get("contenta"));
             logger.error("数据数量:"+list.size());
         } catch (Exception e) {
             e.printStackTrace();

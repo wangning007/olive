@@ -8,5 +8,13 @@
     <artifactId>olive-api</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.inspur</groupId>
+            <artifactId>olive-parent</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
 
 </project>
