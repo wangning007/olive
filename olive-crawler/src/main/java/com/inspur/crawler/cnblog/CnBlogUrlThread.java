@@ -1,9 +1,12 @@
 package com.inspur.crawler.cnblog;
 
+import com.inspur.crawler.ehcache.EhCacheUtil;
+import net.sf.ehcache.Element;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.log4j.Logger;
 
+import java.net.URLConnection;
 import java.util.concurrent.ArrayBlockingQueue;
 
 /**
@@ -23,7 +26,7 @@ public class CnBlogUrlThread implements Runnable {
 
     private CloseableHttpClient client;
 
-    private String URL = "https://www.cnblogs.com/cate/java/#p";
+
 
     private int limit = 200;
     private int start = 2;
@@ -32,13 +35,25 @@ public class CnBlogUrlThread implements Runnable {
     public void run() {
         try {
             while (true){
+
                 for(int i = start; i <= limit; i++){
-                    URL += i;
-                    //校验是否有内容
-                    if(HttpClientUtils.validate(client,URL)){
+
+                    String URL = "https://www.cnblogs.com/cate/java/#p"+ i;
+
+                    //校验URL是否重复
+                    Element element = EhCacheUtil.getCache().get(URL.hashCode());
+                    if(element == null){
+                        Element urlElement = new Element(URL.hashCode(),URL);
+                        EhCacheUtil.getCache().put(urlElement);
                         arrayBlockingQueue.put(URL);
                         logger.info("存入url:"+URL+",目前URL剩余:"+arrayBlockingQueue.size());
                     }
+
+                    //校验是否有内容
+//                    if(HttpClientUtils.validate(client,URL)){
+//                        arrayBlockingQueue.put(URL);
+//                        logger.info("存入url:"+URL+",目前URL剩余:"+arrayBlockingQueue.size());
+//                    }
                 }
             }
         } catch (Exception e) {

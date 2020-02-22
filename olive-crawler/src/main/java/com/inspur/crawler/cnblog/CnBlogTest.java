@@ -20,9 +20,9 @@ public class CnBlogTest {
 
         CloseableHttpClient client = HttpClients.custom().setConnectionManager(connectionManager).build();
 
-        ArrayBlockingQueue<String> arrayBlockingQueue = new ArrayBlockingQueue<String>(200,true);
-        Runnable runnable = new CnBlogUrlThread(arrayBlockingQueue,client);
-        new Thread(runnable).start();
+        ArrayBlockingQueue<String> arrayBlockingQueue = new ArrayBlockingQueue<String>(201,true);
+        Runnable urlThread = new CnBlogUrlThread(arrayBlockingQueue,client);
+        new Thread(urlThread).start();
 //        Runnable crawler = new CnBlogCrawlerThread(arrayBlockingQueue);
 //        new Thread(crawler).start();
     }
