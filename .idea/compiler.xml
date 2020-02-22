@@ -10,6 +10,7 @@
         <module name="olive-crawler" />
         <module name="olive-commons" />
         <module name="olive-account" />
+        <module name="olive-geo" />
         <module name="olive-common-config" />
         <module name="olive-web" />
         <module name="olive" />
