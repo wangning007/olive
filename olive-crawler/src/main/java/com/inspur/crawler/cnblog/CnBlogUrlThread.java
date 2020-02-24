@@ -41,10 +41,10 @@ public class CnBlogUrlThread implements Runnable {
                     String URL = "https://www.cnblogs.com/cate/java/#p"+ i;
 
                     //校验URL是否重复
-                    Element element = EhCacheUtil.getCache().get(URL.hashCode());
+                    Element element = EhCacheUtil.getCache(EhCacheUtil.URL_CACHE_NAME).get(URL.hashCode());
                     if(element == null){
                         Element urlElement = new Element(URL.hashCode(),URL);
-                        EhCacheUtil.getCache().put(urlElement);
+                        EhCacheUtil.putCacheValue(EhCacheUtil.URL_CACHE_NAME,URL.hashCode(),URL);
                         arrayBlockingQueue.put(URL);
                         logger.info("存入url:"+URL+",目前URL剩余:"+arrayBlockingQueue.size());
                     }
