@@ -20,6 +20,8 @@ public class ConnectionUtil {
 
     private static final String password;
 
+    private static Connection connection = null;
+
     static {
         //ResourceBundle resourceBundle = ResourceBundle.getBundle("jdbc.properties");
         Properties prop = new Properties();
@@ -37,13 +39,14 @@ public class ConnectionUtil {
     static {
         try {
             Class.forName(driver);
-        } catch (ClassNotFoundException e) {
+            connection = DriverManager.getConnection(url,username,password);
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public static Connection getConnection() throws Exception{
-        return DriverManager.getConnection(url,username,password);
+        return connection == null ?DriverManager.getConnection(url,username,password):connection;
     }
 
 

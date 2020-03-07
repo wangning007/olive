@@ -17,8 +17,8 @@
         <persistence strategy="localTempSwap"/>
     </defaultCache>
 
-    <!-- helloworld缓存 -->
-    <cache name="HelloWorldCache"
+    <!-- urlCache缓存 -->
+    <cache name="urlCache"
            maxElementsInMemory="1"
            eternal="false"
            timeToIdleSeconds="5"

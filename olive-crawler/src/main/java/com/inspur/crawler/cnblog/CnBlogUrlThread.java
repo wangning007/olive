@@ -34,9 +34,8 @@ public class CnBlogUrlThread implements Runnable {
 
     public void run() {
         try {
-            while (true){
-
                 for(int i = start; i <= limit; i++){
+                    System.out.println(i);
 
                     String URL = "https://www.cnblogs.com/cate/java/#p"+ i;
 
@@ -55,7 +54,6 @@ public class CnBlogUrlThread implements Runnable {
 //                        logger.info("存入url:"+URL+",目前URL剩余:"+arrayBlockingQueue.size());
 //                    }
                 }
-            }
         } catch (Exception e) {
             e.printStackTrace();
         }
