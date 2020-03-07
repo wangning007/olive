@@ -1,6 +1,5 @@
 package com.inspur.jdbc;
 
-import org.apache.commons.dbutils.QueryRunner;
 
 /**
  * @author wang.ning

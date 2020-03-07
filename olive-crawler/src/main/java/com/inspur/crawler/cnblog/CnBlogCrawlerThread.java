@@ -2,6 +2,7 @@ package com.inspur.crawler.cnblog;
 
 import com.inspur.jdbc.ConnectionUtil;
 import com.inspur.jdbc.DbUtil;
+import com.inspur.utils.SnowFlakeIdGenerator;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.http.conn.HttpClientConnectionManager;
 import org.apache.log4j.Logger;
@@ -10,7 +11,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.sql.Connection;
 import java.util.concurrent.ArrayBlockingQueue;
 
 /**
@@ -87,7 +87,21 @@ public class CnBlogCrawlerThread implements Runnable {
      * @param document
      * @param url
      */
-    private void parseLevel2Content(Document document,String url){
-        Elements elements = document.select("");
+    private void parseLevel2Content(Document document,String url) throws Exception{
+        Element contentElement = document.getElementById("cnblogs_post_body");
+        String content = contentElement.html();
+
+        Element titleElement = document.getElementById("cb_post_title_url");
+        String contentTitle = titleElement.text();
+
+        String contentSql = "insert into blog_detail (int_id,title,contenta) values(?,?,?)";
+        Long contentId = new SnowFlakeIdGenerator(1,2).nextId();
+        Object[] contentParams = {contentId,contentTitle,content.getBytes()};
+        int flag = queryRunner.update(ConnectionUtil.getConnection(),contentSql,contentParams);
+        if(flag > 0){
+            logger.info(url+":二级数据已爬取入库!!.");
+        }else{
+            logger.error(url+"二级数据爬取失败!!");
+        }
     }
 }
