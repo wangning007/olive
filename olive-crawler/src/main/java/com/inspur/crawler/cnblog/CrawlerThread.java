@@ -2,7 +2,6 @@ package com.inspur.crawler.cnblog;
 
 import com.alibaba.fastjson.JSONObject;
 import com.inspur.jdbc.ConnectionUtil;
-import com.inspur.jdbc.DbUtil;
 import com.inspur.utils.SnowFlakeIdGenerator;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -18,78 +17,54 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.nio.charset.Charset;
-import java.sql.Connection;
-
-import java.util.concurrent.ArrayBlockingQueue;
 
 /**
  * @author wang.ning
- * @create 2020-02-21 19:45
+ * @create 2020-02-25 18:35
  */
-public class CnBlogCrawlerThread implements Runnable {
+public class CrawlerThread implements Runnable {
 
-    private static final Logger logger = Logger.getLogger(CnBlogCrawlerThread.class);
+    private static final Logger logger = Logger.getLogger(CrawlerThread.class);
 
-    public CnBlogCrawlerThread(ArrayBlockingQueue<String> queue, CloseableHttpClient client) {
-        this.arrayBlockingQueue = queue;
-        this.client = client;
-        this.queryRunner = DbUtil.getQueryRunner();
+    public CrawlerThread(int page){
+        this.queryRunner = new QueryRunner();
+        this.client = HttpClients.createDefault();
+        this.page = page;
     }
 
-    private ArrayBlockingQueue<String> arrayBlockingQueue;
-    private CloseableHttpClient client;
     private QueryRunner queryRunner;
 
+    CloseableHttpClient client = null;
+    int page;
+
+
+
+    @Override
     public void run() {
         try {
 
-               //String url = arrayBlockingQueue.take();
-               //String url = "https://www.cnblogs.com/AggSite/AggSitePostList";
-            CloseableHttpClient client = HttpClients.createDefault();
             HttpPost httpPost = new HttpPost("https://www.cnblogs.com/AggSite/AggSitePostList");
             httpPost.setHeader("User-Agent","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0");
             httpPost.setHeader("Content-Type","application/json; charset=UTF-8");
-            for(int i = 1; i<= 200;i++){
-                JSONObject jsonObject = new JSONObject();
-                jsonObject.put("CategoryId",106876);
-                jsonObject.put("CategoryType","SiteCategory");
-                jsonObject.put("ItemListActionName","AggSitePostList");
-                jsonObject.put("PageIndex",6);
-                jsonObject.put("ParentCategoryId",2);
-                jsonObject.put("TotalPostCount",4000);
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("CategoryId",106876);
+            jsonObject.put("CategoryType","SiteCategory");
+            jsonObject.put("ItemListActionName","AggSitePostList");
+            jsonObject.put("PageIndex",page);
+            jsonObject.put("ParentCategoryId",2);
+            jsonObject.put("TotalPostCount",4000);
 
-                StringEntity entity = new StringEntity(jsonObject.toString(),"utf-8");
-                httpPost.setEntity(entity);
+            StringEntity entity = new StringEntity(jsonObject.toString(),"utf-8");
+            httpPost.setEntity(entity);
 
-                CloseableHttpResponse response = client.execute(httpPost);
-                System.out.println("状态码:"+response.getStatusLine().getStatusCode());;
+            CloseableHttpResponse response= client.execute(httpPost);
+            System.out.println("状态码:"+response.getStatusLine().getStatusCode());;
 
-                String html = EntityUtils.toString(response.getEntity(), Charset.forName("utf-8"));
-                parseLevel1Content(Jsoup.parse(html),"1");
-            }
+            String html = EntityUtils.toString(response.getEntity(), Charset.forName("utf-8"));
 
-               /*for(int i = 1; i <= 200;i++){
-                   JSONObject jsonObject = new JSONObject();
-                   jsonObject.put("CategoryId",106876);
-                   jsonObject.put("CategoryType","SiteCategory");
-                   jsonObject.put("ItemListActionName","AggSitePostList");
-                   jsonObject.put("PageIndex",i);
-                   jsonObject.put("ParentCategoryId",2);
-                   jsonObject.put("TotalPostCount",4000);
+            parseLevel1Content(Jsoup.parse(html),"222");
 
-                   logger.info("爬取第"+i+"页数据....");
-                   StringEntity stringEntity = new StringEntity(jsonObject.toString(),"utf-8");
-                   CloseableHttpResponse response = HttpClientUtils.handlePost(client,url,stringEntity);
-                   int code = response.getStatusLine().getStatusCode();
-                   if( code == 200){
-                       String content = EntityUtils.toString(response.getEntity(),"utf-8");
-                       System.out.println(content);
-                       Document document = Jsoup.parse(content);
-                       parseLevel1Content(document,url);
-                   }
-
-               }*/
-        } catch (Exception e) {
+        }catch (Exception e){
             e.printStackTrace();
         }
     }
@@ -98,8 +73,8 @@ public class CnBlogCrawlerThread implements Runnable {
      * 解析一级内容
      * @param document
      */
-    private void parseLevel1Content(Document document,String url) throws Exception{
-        Elements elements = document.select("#post_list .post_item .post_item_body");
+    private void parseLevel1Content(Document document, String url) throws Exception{
+        Elements elements = document.select(" .post_item_body");
 
         if(elements.size() > 0){
 
@@ -118,7 +93,7 @@ public class CnBlogCrawlerThread implements Runnable {
 
                 Long intId = new SnowFlakeIdGenerator(1,2).nextId();
 
-                int flag = queryRunner.update(ConnectionUtil.getConnection(),sql,intId,elementTitle,elementUrl,summary);
+                int flag = queryRunner.update(ConnectionUtil.getConnection(),sql,intId,elementTitle,summary,elementUrl);
 
                 if(flag > 0){
                     logger.info(url+":一级数据已爬取入库!!.....开始下一步：爬取二级数据.......");
@@ -145,10 +120,9 @@ public class CnBlogCrawlerThread implements Runnable {
         Element titleElement = document.getElementById("cb_post_title_url");
         String contentTitle = titleElement.text();
 
-        String contentSql = "insert into blog_detail (int_id,title,contenta) values(?,?,?)";
+        String contentSql = "insert into blog_detail (int_id,title,content) values(?,?,?)";
         Long contentId = new SnowFlakeIdGenerator(1,2).nextId();
         Object[] contentParams = {contentId,contentTitle,content.getBytes()};
-
 
         int flag = queryRunner.update(ConnectionUtil.getConnection(),contentSql,contentParams);
 

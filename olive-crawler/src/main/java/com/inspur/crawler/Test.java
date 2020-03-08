@@ -1,5 +1,7 @@
 package com.inspur.crawler;
 
+import com.alibaba.fastjson.JSONObject;
+import com.inspur.crawler.cnblog.HttpClientUtils;
 import com.inspur.crawler.geo.SimpleCoodinates;
 import com.inspur.crawler.geo.WgsGcjConverter;
 import com.inspur.jdbc.ConnectionUtil;
@@ -10,6 +12,19 @@ import org.apache.commons.dbutils.handlers.ArrayListHandler;
 import org.apache.commons.dbutils.handlers.MapHandler;
 import org.apache.commons.dbutils.handlers.MapListHandler;
 import org.apache.commons.dbutils.handlers.ScalarHandler;
+import org.apache.http.HttpRequest;
+import org.apache.http.client.config.RequestConfig;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.conn.HttpClientConnectionManager;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
 
 import java.nio.charset.Charset;
@@ -17,6 +32,7 @@ import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,52 +44,58 @@ import java.util.Map;
 public class Test {
 
     private static final Logger logger = Logger.getLogger(Test.class);
-    private static Connection connection = null;
+
 
     public static void main(String[] args) {
+        PoolingHttpClientConnectionManager connectionManager = new PoolingHttpClientConnectionManager();
+        connectionManager.setMaxTotal(200);
+        connectionManager.setDefaultMaxPerRoute(50);
+
+        CloseableHttpClient client = HttpClients.custom().setConnectionManager(connectionManager).build();
         try {
-            connection = ConnectionUtil.getConnection();
-            QueryRunner queryRunner = new QueryRunner();
-            String sql = "select int_id,longitude,latitude,zh_label from jike_juli";
-            List list = queryRunner.execute(connection, sql, new MapListHandler());
-            logger.error("数据数量:"+((List) list.get(0)).size());
-            List<Map<String,String>> dataList = (List<Map<String, String>>) list.get(0);
-            for(Map<String,String> dataMap:dataList){
-                String int_id = dataMap.get("INT_ID");
-                String longitude = dataMap.get("LONGITUDE");
-                String latitude = dataMap.get("LATITUDE");
-                String zh_label = dataMap.get("ZH_LABEL");
+            /*HttpGet httpGet = new HttpGet("https://www.cnblogs.com/cate/java/#p6");
+            httpGet.setHeader("User-Agent","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0");
+            CloseableHttpResponse response6 = client.execute(httpGet);
+            //String response = HttpClientUtils.doGetString(connectionManager,"https://www.cnblogs.com/cate/java/#p6");
+            String s6 = EntityUtils.toString(response6.getEntity(),"utf-8");*/
 
-                //gcj02转84
+            HttpPost httpPost = new HttpPost("https://www.cnblogs.com/AggSite/AggSitePostList");
+            //https://www.cnblogs.com/mvc/AggSite/PostList.aspx
+            //HttpPost httpPost = new HttpPost("https://www.cnblogs.com/mvc/AggSite/PostList.aspx");
+            httpPost.setHeader("User-Agent","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0");
+            //httpPost.setHeader("referer","https://www.cnblogs.com/");
+            //httpPost.setHeader("origin","https://www.cnblogs.com");
+            httpPost.setHeader("Content-Type","application/json; charset=UTF-8");
 
-                SimpleCoodinates coodinates = WgsGcjConverter.gcj02ToWgs84(Double.parseDouble(latitude),Double.parseDouble(longitude));
+            /*ArrayList<BasicNameValuePair> parameters = new ArrayList();
+            parameters.add(new BasicNameValuePair("CategoryId","106876"));
+            parameters.add(new BasicNameValuePair("CategoryType","SiteCategory"));
+            parameters.add(new BasicNameValuePair("ItemListActionName","AggSitePostList"));
+            parameters.add(new BasicNameValuePair("PageIndex","6"));
+            parameters.add(new BasicNameValuePair("ParentCategoryId","2"));
+            parameters.add(new BasicNameValuePair("TotalPostCount","4000"));
 
-                //Srid
-                String geoSridSql = "SELECT  srid FROM sde.st_geometry_columns WHERE table_name = 'GEO_JIKE_POINT'";
+            httpPost.setEntity(new UrlEncodedFormEntity(parameters));*/
 
-                //objectid
-                String objectIdSql = " select SDE.VERSION_USER_DDL.NEXT_ROW_ID('GIS_PLATFORM',( " +
-                        " select c.REGISTRATION_ID as id " +
-                        " from SDE.SPATIAL_REFERENCES a, SDE.LAYERS b, SDE.TABLE_REGISTRY c " +
-                        " where b.SRID = a.SRID and b.OWNER = c.OWNER " +
-                        " and b.TABLE_NAME = c.TABLE_NAME and c.table_name= 'GEO_JIKE_POINT' " +
-                        " and c.OWNER = 'GIS_PLATFORM')) AS objectid " +
-                        " from dual";
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("CategoryId",106876);
+            jsonObject.put("CategoryType","SiteCategory");
+            jsonObject.put("ItemListActionName","AggSitePostList");
+            jsonObject.put("PageIndex",6);
+            jsonObject.put("ParentCategoryId",2);
+            jsonObject.put("TotalPostCount",4000);
 
-                Object objectid = queryRunner.query(connection,objectIdSql,new ScalarHandler());
-                //Integer.parseInt(objectid.toString());
+            StringEntity entity = new StringEntity(jsonObject.toString(),"utf-8");
+            httpPost.setEntity(entity);
 
+            CloseableHttpResponse response = client.execute(httpPost);
+            System.out.println("状态码:"+response.getStatusLine().getStatusCode());;
 
-                String shape = "sde.st_point ("+coodinates.getLon()+","+coodinates.getLat()+",4326)";
-                //插入空间库
-                String GEOSQL = "insert into GIS_PLATFORM.GEO_JIKE_POINT(objectid,int_id,zh_label,shape) values " +
-                        " ("+Integer.parseInt(objectid.toString())+",'"+dataMap.get("int_id")+"','"+dataMap.get("zh_label")+"',"+shape+")";
+            String html = EntityUtils.toString(response.getEntity(),Charset.forName("utf-8"));
 
-                int flag = queryRunner.update(connection,GEOSQL);
-                logger.info(flag);
+            System.out.println(html);
 
 
-            }
         } catch (Exception e) {
             e.printStackTrace();
         }
