@@ -19,6 +19,7 @@ import org.jsoup.select.Elements;
 
 import java.nio.charset.Charset;
 import java.sql.Connection;
+
 import java.util.concurrent.ArrayBlockingQueue;
 
 /**
@@ -147,6 +148,7 @@ public class CnBlogCrawlerThread implements Runnable {
         String contentSql = "insert into blog_detail (int_id,title,contenta) values(?,?,?)";
         Long contentId = new SnowFlakeIdGenerator(1,2).nextId();
         Object[] contentParams = {contentId,contentTitle,content.getBytes()};
+
 
         int flag = queryRunner.update(ConnectionUtil.getConnection(),contentSql,contentParams);
 

@@ -2,9 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6b50f33d-67fb-4133-8387-3de3bdfbb8f9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/cnblog/CrawlerThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/test/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olive-mybatis/src/main/java/com/inspur/mapper/BlogIntroMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olive-mybatis/src/main/java/com/inspur/test/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olive-mybatis/src/main/java/com/inspur/util/SqlSessionFactoryUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olive-mybatis/src/main/resources/BlogIntroMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olive-mybatis/src/main/resources/log4j.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olive-mybatis/target/classes/BlogIntroMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olive-mybatis/target/classes/log4j.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/olive-mybatis/target/classes/mybatis-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/olive-commons/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/olive-commons/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/olive-commons/src/main/java/com/inspur/jdbc/ConnectionUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/olive-commons/src/main/java/com/inspur/jdbc/ConnectionUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/olive-commons/src/main/java/com/inspur/jdbc/DbUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/olive-commons/src/main/java/com/inspur/jdbc/DbUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/olive-commons/src/main/resources/jdbc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/olive-commons/src/main/resources/jdbc.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/olive-commons/target/classes/jdbc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/olive-commons/target/classes/jdbc.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/olive-crawler/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/olive-crawler/pom.xml" afterDir="false" />
@@ -14,19 +26,11 @@
       <change beforePath="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/cnblog/CnBlogUrlThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/cnblog/CnBlogUrlThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/cnblog/HttpClientUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/cnblog/HttpClientUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/olive-crawler/src/main/resources/jdbc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/olive-crawler/src/main/resources/jdbc.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/olive-crawler/target/classes/ehcache.xml" beforeDir="false" afterPath="$PROJECT_DIR$/olive-crawler/target/classes/ehcache.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/olive-crawler/target/classes/jdbc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/olive-crawler/target/classes/jdbc.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/olive-geo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/olive-geo/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/olive-mybatis/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/olive-mybatis/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/olive-mybatis/src/main/resources/mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/olive-mybatis/src/main/resources/mybatis-config.xml" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/olive-commons/target/" />
-    <ignored path="$PROJECT_DIR$/olive-crawler/target/" />
-    <ignored path="$PROJECT_DIR$/olive-api/target/" />
-    <ignored path="$PROJECT_DIR$/olive-geo/target/" />
-    <ignored path="$PROJECT_DIR$/target/" />
-    <ignored path="$PROJECT_DIR$/olive-common-config/target/" />
-    <ignored path="$PROJECT_DIR$/olive-account/target/" />
-    <ignored path="$PROJECT_DIR$/olive-parent/target/" />
-    <ignored path="$PROJECT_DIR$/olive-web/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,9 +39,6 @@
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -54,51 +55,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/olive-api/pom.xml" />
-        <option value="$PROJECT_DIR$/olive-commons/src/main/java/com/inspur/utils/SnowFlakeIdGenerator.java" />
-        <option value="$PROJECT_DIR$/olive-api/src/main/java/com/inspur/api/crawler/bean/BlogIntro.java" />
-        <option value="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/BlogCrawler.java" />
-        <option value="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/geo/ICoordinates.java" />
-        <option value="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/geo/WgsGcjConverter.java" />
-        <option value="$PROJECT_DIR$/olive-geo/src/main/java/com/inspur/geo/SimpleCoodinates.java" />
-        <option value="$PROJECT_DIR$/olive-commons/src/main/java/com/inspur/jdbc/DbUtil.java" />
-        <option value="$PROJECT_DIR$/olive-geo/src/main/java/com/inspur/geo/WgsGcjConverter.java" />
-        <option value="$PROJECT_DIR$/olive-geo/src/main/java/com/inspur/geo/Test.java" />
-        <option value="$PROJECT_DIR$/olive-crawler/src/main/resources/log4j.properties" />
-        <option value="$PROJECT_DIR$/olive-geo/src/main/java/com/inspur/geo/geotools/Test.java" />
-        <option value="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/ehcache/EhCacheUtil.java" />
-        <option value="$PROJECT_DIR$/olive-crawler/src/main/resources/ehcache.xml" />
-        <option value="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/cnblog/CnBlogUrlThread.java" />
-        <option value="$PROJECT_DIR$/olive-geo/pom.xml" />
-        <option value="$PROJECT_DIR$/olive-crawler/pom.xml" />
-        <option value="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/Test.java" />
-        <option value="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/cnblog/HttpClientUtils.java" />
-        <option value="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/cnblog/CnBlogCrawlerThread.java" />
-        <option value="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/cnblog/CnBlogTest.java" />
-        <option value="$PROJECT_DIR$/olive-commons/pom.xml" />
-        <option value="$PROJECT_DIR$/olive-commons/src/main/java/com/inspur/jdbc/ConnectionUtil.java" />
-        <option value="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/cnblog/CrawlerThread.java" />
-        <option value="$PROJECT_DIR$/olive-crawler/src/main/resources/jdbc.properties" />
-        <option value="$PROJECT_DIR$/olive-commons/src/main/resources/jdbc.properties" />
-        <option value="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/test/Test.java" />
-      </list>
-    </option>
-  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="mavenHome" value="E:/Inspur/TOOLS/apache-maven-3.5.0" />
       </MavenGeneralSettings>
     </option>
-  </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand />
-      <select />
-    </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="width" value="1920" />
@@ -108,22 +70,12 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
-    </panes>
-  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="E:/Inspur/WX2/wx_topo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/olive-mybatis/src/main/resources" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -137,11 +89,11 @@
       <recent name="com.inspur.geo" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\gitworkspace\996\olive\olive-mybatis\src\main\resources" />
       <recent name="F:\996\olive\olive-geo\src\main\java\com\inspur\geo" />
       <recent name="F:\996\olive\olive-crawler\src\main\java\com\inspur\crawler\geo" />
       <recent name="F:\996\olive\olive-commons\src\main\java\com\inspur\utils" />
       <recent name="E:\gitworkspace\996\olive\olive-commons\src\main\resources" />
-      <recent name="E:\gitworkspace\996\olive\olive-commons" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -156,23 +108,9 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Test (2)">
+  <component name="RunManager" selected="Application.Test (3)">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BlogCrawler" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.inspur.crawler.BlogCrawler" />
-      <module name="olive-crawler" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.inspur.crawler.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -212,6 +150,20 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.inspur.crawler.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.inspur.test.Test" />
+      <module name="olive-mybatis" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.inspur.test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -266,11 +218,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test (3)" />
         <item itemvalue="Application.Test (2)" />
         <item itemvalue="Application.CnBlogTest" />
         <item itemvalue="Application.Test" />
         <item itemvalue="Application.Test (1)" />
-        <item itemvalue="Application.BlogCrawler" />
       </list>
     </recent_temporary>
   </component>
@@ -308,73 +260,28 @@
       <workItem from="1582762141353" duration="1059000" />
       <workItem from="1582764574833" duration="2000" />
       <workItem from="1582764628596" duration="34000" />
+      <workItem from="1583595556873" duration="695000" />
+      <workItem from="1583596282220" duration="333000" />
+      <workItem from="1583596647759" duration="258000" />
+      <workItem from="1583596936618" duration="305000" />
     </task>
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68569000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4965278" visible="true" weight="0.28272533" />
-      <window_info id="Structure" order="1" sideWeight="0.5034722" side_tool="true" weight="0.26448497" />
-      <window_info id="Designer" order="2" />
-      <window_info id="UI Designer" order="3" />
-      <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.6805556" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39930555" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3287037" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3298611" />
-      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.3299356" />
-      <window_info anchor="right" id="Commander" order="1" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Maven" order="5" weight="0.3299356" />
-      <window_info anchor="right" id="Database" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-    </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4965278" visible="true" weight="0.26770386" />
-      <window_info id="Structure" order="1" sideWeight="0.5034722" side_tool="true" weight="0.26448497" />
-      <window_info id="Designer" order="2" />
-      <window_info id="UI Designer" order="3" />
-      <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.6805556" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39930555" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.3287037" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="12" weight="0.3298611" />
-      <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.3299356" />
-      <window_info anchor="right" id="Commander" order="1" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="4" />
-      <window_info anchor="right" id="Maven" order="5" weight="0.3299356" />
-      <window_info anchor="right" id="Database" order="6" />
-      <window_info anchor="right" id="Palette&#9;" order="7" />
-    </layout-to-restore>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -382,7 +289,6 @@
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/cnblog/CnBlogCrawlerThread.java</url>
           <line>100</line>
-          <properties />
           <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
@@ -411,447 +317,6 @@
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/olive-common-config/src/main/resources/jdbc.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/olive-common-config/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="8" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/jdk1.8.0_111/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10384">
-          <caret line="513" column="35" selection-start-line="513" selection-start-column="35" selection-end-line="513" selection-end-column="35" />
-          <folding>
-            <element signature="e#18781#18782#0" expanded="true" />
-            <element signature="e#18834#18835#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/jdk1.8.0_111/src.zip!/java/nio/charset/Charset.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5016">
-          <caret line="270" column="29" selection-start-line="270" selection-start-column="22" selection-end-line="270" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/jdk1.8.0_111/src.zip!/java/lang/StringBuffer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2002">
-          <caret line="114" column="11" selection-start-line="114" selection-start-column="11" selection-end-line="114" selection-end-column="11" />
-          <folding>
-            <element signature="e#4139#4140#0" expanded="true" />
-            <element signature="e#4164#4165#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/jdk1.8.0_111/src.zip!/java/util/Queue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77">
-          <caret line="134" column="13" lean-forward="true" selection-start-line="134" selection-start-column="13" selection-end-line="134" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/jdk1.8.0_111/src.zip!/java/util/concurrent/ArrayBlockingQueue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="247" column="51" lean-forward="true" selection-start-line="247" selection-start-column="51" selection-end-line="247" selection-end-column="51" />
-          <folding>
-            <element signature="e#6812#6813#0" expanded="true" />
-            <element signature="e#6849#6850#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/jdk1.8.0_111/src.zip!/java/lang/Runnable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="55" column="17" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/jdk1.8.0_111/src.zip!/java/sql/ResultSet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="175" column="12" selection-start-line="175" selection-start-column="12" selection-end-line="175" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/commons-dbutils/commons-dbutils/1.7/commons-dbutils-1.7.jar!/org/apache/commons/dbutils/ResultSetHandler.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="10" column="33" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/geo/ICoordinates.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/geo/WgsGcjConverter.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/commons-dbutils/commons-dbutils/1.7/commons-dbutils-1.7.jar!/org/apache/commons/dbutils/handlers/ScalarHandler.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
-          <folding>
-            <element signature="e#425#426#0" expanded="true" />
-            <element signature="e#462#463#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/olive-api/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/commons-dbutils/commons-dbutils/1.7/commons-dbutils-1.7.jar!/org/apache/commons/dbutils/QueryRunner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="223" column="44" selection-start-line="223" selection-start-column="28" selection-end-line="223" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/olive-geo/src/main/java/com/inspur/geo/model/ICoordinates.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/olive-geo/src/main/java/com/inspur/geo/model/SimpleCoodinates.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/olive-geo/src/main/java/com/inspur/geo/utils/WgsGcjConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="33" column="28" selection-start-line="33" selection-start-column="28" selection-end-line="33" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/olive-geo/src/main/java/com/inspur/geo/geotools/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="36" column="9" selection-start-line="36" selection-start-column="9" selection-end-line="36" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/net/sf/ehcache/ehcache/2.10.6/ehcache-2.10.6.jar!/net/sf/ehcache/Element.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="27" column="28" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="28" />
-          <folding>
-            <element signature="e#5798#5799#0" expanded="true" />
-            <element signature="e#5831#5832#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/net/sf/ehcache/ehcache/2.10.6/ehcache-2.10.6-sources.jar!/net/sf/ehcache/Element.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="56" column="138" lean-forward="true" selection-start-line="56" selection-start-column="138" selection-end-line="56" selection-end-column="138" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/olive-crawler/src/main/resources/ehcache.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/olive-api/src/main/java/com/inspur/api/crawler/bean/BlogIntro.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/olive-commons/src/main/java/com/inspur/jdbc/DbUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="13" column="38" selection-start-line="13" selection-start-column="38" selection-end-line="13" selection-end-column="38" />
-          <folding>
-            <element signature="e#252#253#0" expanded="true" />
-            <element signature="e#326#327#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/olive-crawler/src/main/resources/log4j.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" column="38" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/olive-geo/src/main/java/com/inspur/geo/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="37" column="17" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.11/httpclient-4.5.11.jar!/org/apache/http/client/methods/HttpPost.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/olive-geo/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="56" selection-start-line="56" selection-end-line="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/cnblog/CnBlogUrlThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
-          <caret line="45" column="49" selection-start-line="45" selection-start-column="49" selection-end-line="45" selection-end-column="49" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpclient/4.5.11/httpclient-4.5.11.jar!/org/apache/http/client/HttpClient.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="25" column="16" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/cnblog/HttpClientUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1496">
-          <caret line="78" column="43" selection-start-line="78" selection-start-column="43" selection-end-line="78" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/ehcache/EhCacheUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="23" column="59" selection-start-line="23" selection-start-column="59" selection-end-line="23" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/cnblog/CnBlogCrawlerThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="38" column="39" selection-start-line="38" selection-start-column="39" selection-end-line="38" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/olive-crawler/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="73" column="21" selection-start-line="73" selection-start-column="21" selection-end-line="73" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/cnblog/CrawlerThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2002">
-          <caret line="107" column="9" selection-start-line="107" selection-start-column="9" selection-end-line="107" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/olive-commons/src/main/resources/jdbc.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/olive-commons/src/main/java/com/inspur/utils/SnowFlakeIdGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/olive-commons/src/main/java/com/inspur/jdbc/ConnectionUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="31" column="9" selection-start-line="31" selection-start-column="9" selection-end-line="31" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/BlogCrawler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
-          <caret line="48" column="37" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1210">
-          <caret line="90" column="33" selection-start-line="90" selection-start-column="12" selection-end-line="90" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/olive-parent/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="8" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/olive-commons/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="27" column="24" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/olive-crawler/src/main/resources/jdbc.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" selection-start-line="5" selection-end-line="8" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/cnblog/CnBlogTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="23" column="51" selection-start-line="23" selection-start-column="51" selection-end-line="23" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/test/Test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="20" selection-start-line="4" selection-start-column="20" selection-end-line="4" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>olive-crawler</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.6" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Maven: com.conversantmedia:disruptor:1.2.13</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
   </component>
   <component name="mavenExecuteGoalHistory">
     <option value="$PROJECT_DIR$" />
