@@ -62,6 +62,7 @@ public class EhCacheUtil {
         Cache cache = cacheMap.get(cacheName);
         if(cache != null){
             cache.put(new Element(key,value));
+            cache.flush();
         }
     }
 
