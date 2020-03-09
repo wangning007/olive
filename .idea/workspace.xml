@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6b50f33d-67fb-4133-8387-3de3bdfbb8f9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/olive-commons/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/olive-commons/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/olive-commons/src/main/java/com/inspur/jdbc/ConnectionUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/olive-commons/src/main/java/com/inspur/jdbc/ConnectionUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/olive-commons/src/main/resources/jdbc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/olive-commons/src/main/resources/jdbc.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/olive-commons/target/classes/jdbc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/olive-commons/target/classes/jdbc.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/olive-crawler/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/olive-crawler/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/Test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/cnblog/CnBlogCrawlerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/cnblog/CnBlogCrawlerThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/cnblog/CnBlogTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/cnblog/CnBlogTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/cnblog/CnBlogUrlThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/cnblog/CnBlogUrlThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/cnblog/HttpClientUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/cnblog/HttpClientUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/olive-crawler/src/main/resources/jdbc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/olive-crawler/src/main/resources/jdbc.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/olive-crawler/target/classes/ehcache.xml" beforeDir="false" afterPath="$PROJECT_DIR$/olive-crawler/target/classes/ehcache.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/olive-crawler/target/classes/jdbc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/olive-crawler/target/classes/jdbc.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/olive-geo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/olive-geo/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="6b50f33d-67fb-4133-8387-3de3bdfbb8f9" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/olive-commons/target/" />
     <ignored path="$PROJECT_DIR$/olive-crawler/target/" />
     <ignored path="$PROJECT_DIR$/olive-api/target/" />
@@ -114,8 +98,18 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="olive" type="b2602c69:ProjectViewProjectNode" />
+              <item name="olive" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -123,7 +117,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="E:/Inspur/WX2/wx_topo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -308,16 +302,17 @@
       <workItem from="1582762141353" duration="1059000" />
       <workItem from="1582764574833" duration="2000" />
       <workItem from="1582764628596" duration="34000" />
+      <workItem from="1583714439734" duration="265000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68569000" />
+    <option name="totallyTimeSpent" value="68834000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4965278" visible="true" weight="0.28272533" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4965278" visible="true" weight="0.2864807" />
       <window_info id="Structure" order="1" sideWeight="0.5034722" side_tool="true" weight="0.26448497" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
