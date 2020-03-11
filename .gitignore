@@ -1,3 +1,4 @@
+.idea/
 #eclipse files
 .classpath
 .project
@@ -40,6 +41,8 @@ captures/
 *.iml
 /.idea/
 .idea/
+/target/
+target/
  
 # Keystore files
 *.jks
