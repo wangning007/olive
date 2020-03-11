@@ -4,4 +4,8 @@
     <select id="getAllBlogIntro" resultType="com.inspur.api.crawler.bean.BlogIntro" >
         select int_id as intId,title,summary,url from blog_intro
     </select>
+
+    <insert id="saveBlogIntro" parameterType="com.inspur.api.crawler.bean.BlogIntro">
+        insert into blog_intro (int_id,title,summary,url) values(#{intId},#{title},#{summary},#{url})
+    </insert>
 </mapper>

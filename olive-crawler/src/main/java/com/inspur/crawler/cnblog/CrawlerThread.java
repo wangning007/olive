@@ -1,6 +1,8 @@
 package com.inspur.crawler.cnblog;
 
 import com.alibaba.fastjson.JSONObject;
+import com.inspur.api.crawler.bean.BlogIntro;
+import com.inspur.dao.BlogIntroMapper;
 import com.inspur.jdbc.ConnectionUtil;
 import com.inspur.utils.SnowFlakeIdGenerator;
 import org.apache.commons.dbutils.QueryRunner;
@@ -26,13 +28,16 @@ public class CrawlerThread implements Runnable {
 
     private static final Logger logger = Logger.getLogger(CrawlerThread.class);
 
-    public CrawlerThread(int page){
-        this.queryRunner = new QueryRunner();
+    public CrawlerThread(int page,BlogIntroMapper blogIntroMapper){
+        //this.queryRunner = new QueryRunner();
         this.client = HttpClients.createDefault();
         this.page = page;
+        this.blogIntroMapper = blogIntroMapper;
     }
 
     private QueryRunner queryRunner;
+
+    private BlogIntroMapper blogIntroMapper;
 
     CloseableHttpClient client = null;
     int page;
@@ -93,13 +98,19 @@ public class CrawlerThread implements Runnable {
 
                 Long intId = new SnowFlakeIdGenerator(1,2).nextId();
 
-                int flag = queryRunner.update(ConnectionUtil.getConnection(),sql,intId,elementTitle,summary,elementUrl);
+                //int flag = queryRunner.update(ConnectionUtil.getConnection(),sql,intId,elementTitle,summary,elementUrl);
+                BlogIntro blog = new BlogIntro();
+                blog.setIntId(intId);
+                blog.setSummary(summary);
+                blog.setUrl(elementUrl);
+                blog.setTitle(elementTitle);
 
+                int flag = blogIntroMapper.saveBlogIntro(blog);
                 if(flag > 0){
                     logger.info(url+":一级数据已爬取入库!!.....开始下一步：爬取二级数据.......");
                     String content = HttpClientUtils.doGetStringMultiThread(client,elementUrl);
                     Document document2 = Jsoup.parse(content);
-                    this.parseLevel2Content(document2,elementUrl);
+                   // this.parseLevel2Content(document2,elementUrl);
                 }else{
                     logger.error(url+"数据爬取失败!!");
                 }
