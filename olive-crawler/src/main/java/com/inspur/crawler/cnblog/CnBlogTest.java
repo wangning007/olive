@@ -21,7 +21,7 @@ public class CnBlogTest {
         ThreadPoolExecutor executor = new ThreadPoolExecutor(2,20,1, TimeUnit.HOURS,queue);
 
         for(int i = 1; i <= 200; i++){
-            executor.execute(new CrawlerThread(i));
+            executor.execute(new CrawlerThread(i,null));
         }
         executor.shutdown();
 

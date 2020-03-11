@@ -1,9 +1,12 @@
-package com.inspur.mapper;
+package com.inspur.dao;
 
+import com.inspur.api.crawler.bean.BlogDetail;
 import com.inspur.api.crawler.bean.BlogIntro;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface BlogIntroMapper {
 
     public List<BlogIntro> getAllBlogIntro();
@@ -12,6 +15,8 @@ public interface BlogIntroMapper {
 
     public List<BlogIntro> getBlogIntroByTitle(String title);
 
-    public void saveBlogIntro(BlogIntro blogIntro);
+    public int saveBlogIntro(BlogIntro blogIntro);
+
+    public int saveBlogDetail(BlogDetail blogDetail);
 
 }
