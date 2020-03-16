@@ -15,5 +15,40 @@
         insert into blog_detail(int_id,title,url,content) values(#{intId},#{title},#{url},#{content})
     </insert>
 
+    <select id="getBlogIntro" parameterType="com.inspur.api.crawler.bean.BlogIntro" resultType="com.inspur.api.crawler.bean.BlogIntro">
+        select * from blog_intro
+        <where>
+            <if test="intId != null and intId != ''">
+              and int_id = #{intId}
+            </if>
+            <if test="title != null and title != ''">
+              and title like  concat('%',#{title},'%')
+            </if>
+            <if test="url != null and url != ''">
+              and url = #{url}
+            </if>
+        </where>
+    </select>
+
+    <update id="updateBlogIntro" parameterType="com.inspur.api.crawler.bean.BlogIntro">
+        update blog_intro
+        <set>
+            <if test="title != null and title != ''">
+                title = #{title},
+            </if>
+            <if test="url != null and url != ''">
+                url = #{url}
+            </if>
+            <if test="summary != null and summary != ''">
+                summary = #{summary}
+            </if>
+        </set>
+        where int_id = #{intId}
+    </update>
+
+    <delete id="deleteBlogIntro" parameterType="com.inspur.api.crawler.bean.BlogIntro">
+        delete from blog_intro where int_id = #{intId}
+    </delete>
+
 
 </mapper>
