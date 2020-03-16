@@ -1,6 +1,7 @@
 package com.inspur.crawler.cnblog;
 
 import com.alibaba.fastjson.JSONObject;
+import com.inspur.api.crawler.bean.BlogDetail;
 import com.inspur.api.crawler.bean.BlogIntro;
 import com.inspur.dao.BlogIntroMapper;
 import com.inspur.jdbc.ConnectionUtil;
@@ -110,7 +111,7 @@ public class CrawlerThread implements Runnable {
                     logger.info(url+":一级数据已爬取入库!!.....开始下一步：爬取二级数据.......");
                     String content = HttpClientUtils.doGetStringMultiThread(client,elementUrl);
                     Document document2 = Jsoup.parse(content);
-                   // this.parseLevel2Content(document2,elementUrl);
+                   this.parseLevel2Content(document2,elementUrl);
                 }else{
                     logger.error(url+"数据爬取失败!!");
                 }
@@ -135,7 +136,13 @@ public class CrawlerThread implements Runnable {
         Long contentId = new SnowFlakeIdGenerator(1,2).nextId();
         Object[] contentParams = {contentId,contentTitle,content.getBytes()};
 
-        int flag = queryRunner.update(ConnectionUtil.getConnection(),contentSql,contentParams);
+        BlogDetail blogDetail = new BlogDetail();
+        blogDetail.setIntId(contentId);
+        blogDetail.setTitle(contentTitle);
+        blogDetail.setContent(content.getBytes());
+
+        //int flag = queryRunner.update(ConnectionUtil.getConnection(),contentSql,contentParams);
+        int flag = blogIntroMapper.saveBlogDetail(blogDetail);
 
         if(flag > 0){
             logger.info(url+":二级级数据已爬取入库!!.......");

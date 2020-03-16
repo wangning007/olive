@@ -1,5 +1,6 @@
 package com.inspur.dao;
 
+import com.inspur.api.crawler.bean.BlogDetail;
 import com.inspur.api.crawler.bean.BlogIntro;
 import org.springframework.stereotype.Repository;
 
@@ -14,6 +15,7 @@ public interface BlogIntroMapper {
 
     public int saveBlogIntro(BlogIntro blogIntro);
 
+    public int saveBlogDetail(BlogDetail blogDetail);
     public int updateBlogIntro(BlogIntro blogIntro);
 
     public int deleteBlogIntro(BlogIntro blogIntro);

@@ -11,6 +11,10 @@
         insert into blog_intro(int_id,title,summary,url) values(#{intId},#{title},#{summary},#{url})
     </insert>
 
+    <insert id="saveBlogDetail" parameterType="com.inspur.api.crawler.bean.BlogDetail">
+        insert into blog_detail(int_id,title,url,content) values(#{intId},#{title},#{url},#{content})
+    </insert>
+
     <select id="getBlogIntro" parameterType="com.inspur.api.crawler.bean.BlogIntro" resultType="com.inspur.api.crawler.bean.BlogIntro">
         select * from blog_intro
         <where>

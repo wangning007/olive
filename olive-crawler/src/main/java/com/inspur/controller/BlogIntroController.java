@@ -41,7 +41,6 @@ public class BlogIntroController {
         }
         executor.shutdown();
     }
-
     @GetMapping("/writeEhcache")
     public void writeToEhCache(){
         List<BlogIntro> list = blogIntroMapper.getAllBlogIntro();
