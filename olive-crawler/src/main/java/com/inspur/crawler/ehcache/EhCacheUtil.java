@@ -4,6 +4,7 @@ package com.inspur.crawler.ehcache;
 import net.sf.ehcache.Cache;
 import net.sf.ehcache.CacheManager;
 import net.sf.ehcache.Element;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,6 +13,7 @@ import java.util.Map;
  * @author wang.ning
  * @create 2020-02-22 10:07
  */
+@Component
 public class EhCacheUtil {
 
     public static final String  MAP_CACHE_NAME = "mapCache";
@@ -20,8 +22,14 @@ public class EhCacheUtil {
     public static final String DICTIONARY_CACHE_NAME = "dictionaryCache";
     public static final String  URL_CACHE_NAME = "urlCache";
 
-    public static final CacheManager cacheManager = CacheManager.create();
+    public static final CacheManager cacheManager = CacheManager.create(EhCacheUtil.class.getResourceAsStream("/ehcache.xml"));
+   // public static final CacheManager cacheManager = CacheManager.create();
     public static Map<String,Cache> cacheMap = new HashMap<>();
+
+   static {
+        cacheMap.put(URL_CACHE_NAME,cacheManager.getCache(URL_CACHE_NAME));
+    }
+
 
     /**
      * 根据缓存库名字获取缓存库实例

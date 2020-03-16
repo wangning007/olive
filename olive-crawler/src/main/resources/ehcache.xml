@@ -20,7 +20,7 @@
     <!-- urlCache缓存 -->
     <cache name="urlCache"
            maxElementsInMemory="1"
-           eternal="false"
+           eternal="true"
            timeToIdleSeconds="5"
            timeToLiveSeconds="5"
            overflowToDisk="true"
