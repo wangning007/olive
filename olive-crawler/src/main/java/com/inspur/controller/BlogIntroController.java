@@ -1,9 +1,9 @@
 package com.inspur.controller;
 
-import com.inspur.api.crawler.bean.BlogIntro;
 import com.inspur.crawler.cnblog.CrawlerThread;
 import com.inspur.crawler.ehcache.EhCacheUtil;
 import com.inspur.dao.BlogIntroMapper;
+import com.inspur.model.crawler.BlogIntro;
 import net.sf.ehcache.Cache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

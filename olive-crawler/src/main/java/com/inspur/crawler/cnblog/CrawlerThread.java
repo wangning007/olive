@@ -1,10 +1,9 @@
 package com.inspur.crawler.cnblog;
 
 import com.alibaba.fastjson.JSONObject;
-import com.inspur.api.crawler.bean.BlogDetail;
-import com.inspur.api.crawler.bean.BlogIntro;
 import com.inspur.dao.BlogIntroMapper;
-import com.inspur.jdbc.ConnectionUtil;
+import com.inspur.model.crawler.BlogDetail;
+import com.inspur.model.crawler.BlogIntro;
 import com.inspur.utils.SnowFlakeIdGenerator;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.http.client.methods.CloseableHttpResponse;
