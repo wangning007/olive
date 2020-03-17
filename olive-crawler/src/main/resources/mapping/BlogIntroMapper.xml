@@ -3,19 +3,19 @@
 
 <mapper namespace="com.inspur.dao.BlogIntroMapper">
 
-    <select id="getAllBlogIntro"  resultType="com.inspur.api.crawler.bean.BlogIntro">
+    <select id="getAllBlogIntro"  resultType="com.inspur.model.crawler.BlogIntro">
         select * from blog_intro
     </select>
 
-    <insert id="saveBlogIntro" parameterType="com.inspur.api.crawler.bean.BlogIntro">
+    <insert id="saveBlogIntro" parameterType="com.inspur.model.crawler.BlogIntro">
         insert into blog_intro(int_id,title,summary,url) values(#{intId},#{title},#{summary},#{url})
     </insert>
 
-    <insert id="saveBlogDetail" parameterType="com.inspur.api.crawler.bean.BlogDetail">
+    <insert id="saveBlogDetail" parameterType="com.inspur.model.crawler.BlogDetail">
         insert into blog_detail(int_id,title,url,content) values(#{intId},#{title},#{url},#{content})
     </insert>
 
-    <select id="getBlogIntro" parameterType="com.inspur.api.crawler.bean.BlogIntro" resultType="com.inspur.api.crawler.bean.BlogIntro">
+    <select id="getBlogIntro" parameterType="com.inspur.model.crawler.BlogIntro" resultType="com.inspur.model.crawler.BlogIntro">
         select * from blog_intro
         <where>
             <if test="intId != null and intId != ''">
@@ -30,7 +30,7 @@
         </where>
     </select>
 
-    <update id="updateBlogIntro" parameterType="com.inspur.api.crawler.bean.BlogIntro">
+    <update id="updateBlogIntro" parameterType="com.inspur.model.crawler.BlogIntro">
         update blog_intro
         <set>
             <if test="title != null and title != ''">
@@ -46,7 +46,7 @@
         where int_id = #{intId}
     </update>
 
-    <delete id="deleteBlogIntro" parameterType="com.inspur.api.crawler.bean.BlogIntro">
+    <delete id="deleteBlogIntro" parameterType="com.inspur.model.crawler.BlogIntro">
         delete from blog_intro where int_id = #{intId}
     </delete>
 

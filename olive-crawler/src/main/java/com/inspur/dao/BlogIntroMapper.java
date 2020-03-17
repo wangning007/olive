@@ -1,7 +1,7 @@
 package com.inspur.dao;
 
-import com.inspur.api.crawler.bean.BlogDetail;
-import com.inspur.api.crawler.bean.BlogIntro;
+import com.inspur.model.crawler.BlogDetail;
+import com.inspur.model.crawler.BlogIntro;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

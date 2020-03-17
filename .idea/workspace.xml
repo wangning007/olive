@@ -3,6 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="6b50f33d-67fb-4133-8387-3de3bdfbb8f9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/olive-api/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/olive-api/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/olive-api/src/main/java/com/inspur/api/crawler/bean/BlogDetail.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/olive-crawler/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/olive-crawler/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/controller/BlogIntroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/controller/BlogIntroController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/cnblog/CrawlerThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/crawler/cnblog/CrawlerThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/dao/BlogIntroMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/olive-crawler/src/main/java/com/inspur/dao/BlogIntroMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/olive-crawler/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/olive-crawler/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/olive-crawler/src/main/resources/mapping/BlogIntroMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/olive-crawler/src/main/resources/mapping/BlogIntroMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/olive-parent/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/olive-parent/pom.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,9 +51,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="dummy://restClient/response9.txt" root0="SKIP_INSPECTION" />
-  </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -52,15 +58,15 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="width" value="1920" />
-    <option name="height" value="1047" />
-  </component>
   <component name="ProjectId" id="1Y1wPzOZpK82mBlVNnCCq8twsvq" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -72,10 +78,11 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.inspur.model.crawler" />
       <recent name="com.inspur.geo" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -144,7 +151,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.AppAplication">
+  <component name="RunManager" selected="Spring Boot.AppAplication">
     <configuration default="true" type="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -174,20 +181,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.inspur.geo.geotools.Test" />
-      <module name="olive-geo" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.inspur.geo.geotools.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Test (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.inspur.crawler.test.Test" />
       <module name="olive-crawler" />
@@ -205,6 +198,20 @@
     <configuration name="Test (3)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.inspur.test.Test" />
       <module name="olive-mybatis" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.inspur.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test (4)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.inspur.test.Test" />
+      <module name="olive-parent" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -243,6 +250,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AppAplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="olive-crawler" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.inspur.AppAplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="TestNG">
       <option name="TEST_OBJECT" value="CLASS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -265,17 +279,18 @@
       <item itemvalue="Application.AppAplication" />
       <item itemvalue="Application.CnBlogTest" />
       <item itemvalue="Application.Test" />
-      <item itemvalue="Application.Test (1)" />
       <item itemvalue="Application.Test (2)" />
       <item itemvalue="Application.Test (3)" />
+      <item itemvalue="Application.Test (4)" />
+      <item itemvalue="Spring Boot.AppAplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test (4)" />
         <item itemvalue="Application.Test (3)" />
         <item itemvalue="Application.Test (2)" />
         <item itemvalue="Application.CnBlogTest" />
         <item itemvalue="Application.Test" />
-        <item itemvalue="Application.Test (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -317,7 +332,9 @@
       <workItem from="1583596282220" duration="333000" />
       <workItem from="1583596647759" duration="258000" />
       <workItem from="1583596936618" duration="345000" />
-      <workItem from="1583935007067" duration="4027000" />
+      <workItem from="1583935007067" duration="4419000" />
+      <workItem from="1584368393860" duration="2455000" />
+      <workItem from="1584370891267" duration="2074000" />
     </task>
     <servers />
   </component>

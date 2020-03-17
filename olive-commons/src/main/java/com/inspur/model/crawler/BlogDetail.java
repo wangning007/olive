@@ -1,4 +1,4 @@
-package com.inspur.api.crawler.bean;
+package com.inspur.model.crawler;
 
 import lombok.Data;
 
