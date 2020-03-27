@@ -3,6 +3,10 @@
 
 <mapper namespace="com.inspur.dao.BlogIntroMapper">
 
+    <sql id="blogIntro">
+        title,summary,url
+    </sql>
+
     <select id="getAllBlogIntro"  resultType="com.inspur.model.crawler.BlogIntro">
         select * from blog_intro
     </select>

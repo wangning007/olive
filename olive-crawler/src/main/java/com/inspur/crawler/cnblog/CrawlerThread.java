@@ -94,8 +94,6 @@ public class CrawlerThread implements Runnable {
                 Elements summarys = element.select(".post_item_summary");
                 String summary = summarys.get(0).text();
 
-                String sql = "insert into blog_intro (int_id,title,summary,url) values(?,?,?,?)";
-
                 Long intId = new SnowFlakeIdGenerator(1,2).nextId();
 
                 //int flag = queryRunner.update(ConnectionUtil.getConnection(),sql,intId,elementTitle,summary,elementUrl);

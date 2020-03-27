@@ -7,6 +7,14 @@
     <groupId>com.inspur</groupId>
     <artifactId>olive-commons</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <parent>
+        <groupId>com.inspur</groupId>
+        <artifactId>olive-parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath></relativePath>
+    </parent>
+
     <repositories>
         <repository>
             <id>project</id>
@@ -16,11 +24,6 @@
     </repositories>
 
     <dependencies>
-        <dependency>
-            <groupId>com.inspur</groupId>
-            <artifactId>olive-parent</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
         <dependency>
             <groupId>com.inspur</groupId>
             <artifactId>olive-common-config</artifactId>
@@ -42,6 +45,12 @@
             <groupId>commons-dbutils</groupId>
             <artifactId>commons-dbutils</artifactId>
             <version>1.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>5.2.0.RELEASE</version>
+            <scope>compile</scope>
         </dependency>
 
 

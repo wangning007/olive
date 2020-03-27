@@ -4,6 +4,7 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @author wang.ning
@@ -11,6 +12,7 @@ import org.springframework.cache.annotation.EnableCaching;
  */
 //@EnableCaching
 @MapperScan("com.inspur.dao")
+@ComponentScan("com.inspur.*")
 @SpringBootApplication
 public class AppAplication {
 
