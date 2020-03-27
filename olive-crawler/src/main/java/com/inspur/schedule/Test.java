@@ -1,9 +1,13 @@
 package com.inspur.schedule;
 
+import com.inspur.service.BlogCrawlerService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
+
+import java.util.Objects;
 
 /**
  * @author wang.ning
@@ -14,8 +18,12 @@ import org.springframework.scheduling.annotation.Scheduled;
 @Slf4j
 public class Test {
 
-    @Scheduled(cron = "0/5 * * * * ?")
+    @Autowired
+    BlogCrawlerService blogCrawlerService;
+
+    @Scheduled(cron = "0 0 0/1 * * ?")
     private void test(){
-        log.info("测试.....");
+        log.info(Objects.toString(System.currentTimeMillis()));
+        blogCrawlerService.updateCrawlerBlogs();
     }
 }

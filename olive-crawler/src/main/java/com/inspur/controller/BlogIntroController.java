@@ -4,6 +4,7 @@ import com.inspur.crawler.cnblog.CrawlerThread;
 import com.inspur.crawler.ehcache.EhCacheUtil;
 import com.inspur.dao.BlogIntroMapper;
 import com.inspur.model.crawler.BlogIntro;
+import com.inspur.service.BlogCrawlerService;
 import net.sf.ehcache.Cache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -26,6 +27,9 @@ public class BlogIntroController {
     @Autowired
     BlogIntroMapper blogIntroMapper;
 
+    @Autowired
+    BlogCrawlerService blogCrawlerService;
+
     @GetMapping("/getAllBlogs")
     public List<BlogIntro> getAllBlogIntro(){
         return blogIntroMapper.getAllBlogIntro();
@@ -33,13 +37,7 @@ public class BlogIntroController {
 
     @RequestMapping("start")
     public void start(){
-        BlockingQueue<Runnable> queue = new ArrayBlockingQueue<Runnable>(200);
-        ThreadPoolExecutor executor = new ThreadPoolExecutor(2,20,1, TimeUnit.HOURS,queue);
-
-        for(int i = 1; i <= 200; i++){
-            executor.execute(new CrawlerThread(i,blogIntroMapper));
-        }
-        executor.shutdown();
+        blogCrawlerService.updateCrawlerBlogs();
     }
     @GetMapping("/writeEhcache")
     public void writeToEhCache(){

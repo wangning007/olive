@@ -2,10 +2,13 @@ package com.inspur.service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.inspur.api.crawler.IBlogCrawlerService;
+import com.inspur.crawler.cnblog.CrawlerThread;
 import com.inspur.crawler.cnblog.HttpClientUtils;
 import com.inspur.crawler.ehcache.EhCacheUtil;
 import com.inspur.dao.BlogIntroMapper;
+import com.inspur.enums.ResponseEnum;
 import com.inspur.model.crawler.BlogIntro;
+import com.inspur.utils.DocumentUtil;
 import com.inspur.utils.HttpRequestUtil;
 import com.inspur.utils.SnowFlakeIdGenerator;
 import lombok.extern.slf4j.Slf4j;
@@ -14,6 +17,7 @@ import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -25,6 +29,10 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.List;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author wang.ning
@@ -36,6 +44,9 @@ public class BlogCrawlerService implements IBlogCrawlerService {
 
     @Autowired
     private BlogIntroMapper blogIntroMapper;
+
+    @Autowired
+    private DocumentUtil documentUtil;
 
 
     @Override
@@ -50,40 +61,30 @@ public class BlogCrawlerService implements IBlogCrawlerService {
             this.writeBlogsURLToEhcache();
         }
 
+        CloseableHttpClient httpClient = HttpClients.createDefault();
 
+        BlockingQueue<Runnable> queue = new ArrayBlockingQueue<Runnable>(200);
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(2,20,1, TimeUnit.HOURS,queue);
 
-
-        /*HttpPost httpPost = new HttpPost("https://www.cnblogs.com/AggSite/AggSitePostList");
-        httpPost.setHeader("User-Agent","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0");
-        httpPost.setHeader("Content-Type","application/json; charset=UTF-8");
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("CategoryId",106876);
-        jsonObject.put("CategoryType","SiteCategory");
-        jsonObject.put("ItemListActionName","AggSitePostList");
-        jsonObject.put("PageIndex",page);
-        jsonObject.put("ParentCategoryId",2);
-        jsonObject.put("TotalPostCount",4000);
-
-        StringEntity entity = new StringEntity(jsonObject.toString(),"utf-8");
-        httpPost.setEntity(entity);
-
-        CloseableHttpResponse response= client.execute(httpPost);
-        System.out.println("状态码:"+response.getStatusLine().getStatusCode());;
-
-        String html = EntityUtils.toString(response.getEntity(), Charset.forName("utf-8"));
-
-        this.parseLevel1Content(Jsoup.parse(html),"222");*/
-
-
+        for(int i = 1; i <= 200; i++){
+            executor.execute(new CrawlerThread(httpClient,urlCache,i));
+        }
+        executor.shutdown();
     }
 
     class CrawlerThread implements Runnable{
 
-        public CrawlerThread(CloseableHttpClient client){
+        public CrawlerThread(CloseableHttpClient client,Cache urlCache,int page){
             this.client = client;
+            this.urlCache = urlCache;
+            this.page = page;
         }
 
         private CloseableHttpClient client;
+
+        private Cache urlCache;  //URL缓存
+
+        private int page;   //当前页数
 
         @Override
         public void run() {
@@ -93,7 +94,7 @@ public class BlogCrawlerService implements IBlogCrawlerService {
             jsonObject.put("CategoryId",106876);
             jsonObject.put("CategoryType","SiteCategory");
             jsonObject.put("ItemListActionName","AggSitePostList");
-            //jsonObject.put("PageIndex",page);
+            jsonObject.put("PageIndex",page);
             jsonObject.put("ParentCategoryId",2);
             jsonObject.put("TotalPostCount",4000);
 
@@ -101,6 +102,27 @@ public class BlogCrawlerService implements IBlogCrawlerService {
 
             try {
                 CloseableHttpResponse response= client.execute(httpPost);
+                log.info("状态码:"+response.getStatusLine().getStatusCode());
+                if(ResponseEnum.SUCCESS.getCode() == (response.getStatusLine().getStatusCode())){
+                    log.info("抓取成功!");
+                    //log.info(EntityUtils.toString(response.getEntity(),"utf-8"));
+                    Document document = Jsoup.parse(EntityUtils.toString(response.getEntity()),"utf-8");
+                    List<BlogIntro> blogIntros = documentUtil.parseCnBlogsIntro(document);
+                    for(BlogIntro blogIntro:blogIntros){
+                        net.sf.ehcache.Element element = urlCache.get(blogIntro.getUrl());
+                        if(element == null){
+                            //执行插入
+                            EhCacheUtil.putCacheValue(EhCacheUtil.URL_CACHE_NAME,blogIntro.getUrl(),blogIntro.getUrl());
+                            int flag = blogIntroMapper.saveBlogIntro(blogIntro);
+                            log.info("insert:"+flag);
+                        }else{
+                            //获取简介内容比对
+                            //获取详情内容比对
+                        }
+                    }
+                }else{
+                    log.error("请求异常:"+response.getStatusLine().getStatusCode());
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }

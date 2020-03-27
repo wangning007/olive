@@ -28,10 +28,12 @@ public class HttpRequestUtil {
         if(headers == null){
             httpPost.setHeader("User-Agent","Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:72.0) Gecko/20100101 Firefox/72.0");
             httpPost.setHeader("Content-Type","application/json; charset=UTF-8");
+        }else{
+            for(String key:headers.keySet()){
+                httpPost.setHeader(key,headers.get(key));
+            }
         }
-        for(String key:headers.keySet()){
-            httpPost.setHeader(key,headers.get(key));
-        }
+
         return httpPost;
     }
 
